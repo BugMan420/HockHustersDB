@@ -3,7 +3,6 @@ package com.example.tsi.izzy.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
@@ -38,8 +37,9 @@ public class SakilaDatabaseApplication {
 		return languageRepository.findAll();
 	}
 
-	@PostMapping("/Languages")
-	public @ResponseBody String addLanguage(@RequestParam String name){
+	@PostMapping("/addLanguages")
+	public @ResponseBody
+	String addLanguage(@RequestParam String name){
 		Language addLanguage = new Language(name);
 		languageRepository.save(addLanguage);
 		return save;
@@ -63,9 +63,5 @@ public class SakilaDatabaseApplication {
 		return categoryRepository.findAll();
 	}
 
-	@PostMapping("/Categories")
-	Category createCategory(@Validated @RequestBody Category newCategory) {
-		return categoryRepository.save(newCategory);
-	}
 
 }
