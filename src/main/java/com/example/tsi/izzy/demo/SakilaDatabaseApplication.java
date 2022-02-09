@@ -14,10 +14,8 @@ public class SakilaDatabaseApplication {
 	@Autowired
 	private ActorRepository actorRepository;
 
-	public SakilaDatabaseApplication(LanguageRepository languageRepository){
+	public SakilaDatabaseApplication(LanguageRepository languageRepository, ActorRepository actorRepository){
 		this.languageRepository=languageRepository;
-	}
-	public SakilaDatabaseApplication(ActorRepository actorRepository){
 		this.actorRepository=actorRepository;
 	}
 
