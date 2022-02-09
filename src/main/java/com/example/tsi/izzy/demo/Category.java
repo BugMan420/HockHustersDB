@@ -6,18 +6,20 @@ import javax.persistence.Id;
 
 @Entity
 
-public class Language {
+public class Category {
 
     @Id
     @GeneratedValue
-    private int language_id;
+    private int category_id;
     private String name;
 
-    public Language(String name){
+    public Category(String name){
         this.name=name;
     }
 
-    public Language(){}
+    public Category(){
+
+    }
 
     public String getName() {
         return name;
@@ -26,11 +28,11 @@ public class Language {
     public void setName(String name) {
         this.name = name;
     }
-    public int getLanguage_id() {
-        return language_id;
+
+    public int getCategory_id() {
+        return category_id;
     }
 
 
+
 }
-
-

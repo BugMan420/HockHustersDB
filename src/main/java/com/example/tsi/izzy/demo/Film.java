@@ -10,9 +10,6 @@ public class Film {
     @GeneratedValue
     private int film_id;
     private String title;
-
-
-
     private String description;
     private int release_year;
     private int rental_duration;
