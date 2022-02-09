@@ -1,18 +1,24 @@
 package com.example.tsi.izzy.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-
-public class Actor {
+@Table(name="actor")
+public class Actor implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int actor_id;
     private String first_name;
     private String last_name;
+
+    @ManyToMany(mappedBy = "actor", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Set<Film> films = new HashSet<>();
 
     public Actor(String first_name, String last_name){
             this.first_name=first_name;
@@ -37,8 +43,19 @@ public class Actor {
     public void setLast_name(String last_name) {
         this.last_name = last_name;
     }
+
     public int getActor_id() {
         return actor_id;
+    }
+
+    public Set<Film> getFilms()
+    {
+        return films;
+    }
+
+    public void setFilms(Set<Film> films)
+    {
+        this.films = films;
     }
 
 }
