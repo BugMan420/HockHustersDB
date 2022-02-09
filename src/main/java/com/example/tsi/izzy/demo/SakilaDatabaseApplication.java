@@ -11,9 +11,14 @@ import org.springframework.web.bind.annotation.*;
 public class SakilaDatabaseApplication {
 	@Autowired
 	private LanguageRepository languageRepository;
+	@Autowired
+	private ActorRepository actorRepository;
 
 	public SakilaDatabaseApplication(LanguageRepository languageRepository){
 		this.languageRepository=languageRepository;
+	}
+	public SakilaDatabaseApplication(ActorRepository actorRepository){
+		this.actorRepository=actorRepository;
 	}
 
 	public static void main(String[] args) {
@@ -24,5 +29,11 @@ public class SakilaDatabaseApplication {
 	public @ResponseBody
 	Iterable<Language>getAllLanguages(){
 		return languageRepository.findAll();
+	}
+
+	@GetMapping("/AllActors")
+	public @ResponseBody
+	Iterable<Actor>getAllActor(){
+		return actorRepository.findAll();
 	}
 }
