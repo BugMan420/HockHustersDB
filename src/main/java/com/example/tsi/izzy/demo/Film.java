@@ -16,9 +16,7 @@ public class Film {
     private String description;
     private int release_year;
     private int rental_duration;
-    private double rental_rate;
     private int length;
-    private double replacement_cost;
     private String rating;
     private String special_features;
 
@@ -34,14 +32,13 @@ public class Film {
     @JsonIgnore
     private Set<Actor> actor = new HashSet<>();
 
-    public Film(String title, String description,int release_year,int rental_duration,double rental_rate,int length,double replacement_cost,String rating, String special_features){
+
+    public Film(String title, String description, int release_year, int rental_duration, int length, double replacement_cost, String rating, String special_features){
         this.title=title;
         this.description=description;
         this.release_year=release_year;
         this.rental_duration=rental_duration;
-        this.rental_rate=rental_rate;
         this.length=length;
-        this.replacement_cost=replacement_cost;
         this.rating=rating;
         this.special_features=special_features;
 
@@ -85,14 +82,6 @@ public class Film {
         this.rental_duration = rental_duration;
     }
 
-    public double getRental_rate() {
-        return rental_rate;
-    }
-
-    public void setRental_rate(double rental_rate) {
-        this.rental_rate = rental_rate;
-    }
-
     public int getLength() {
         return length;
     }
@@ -101,13 +90,6 @@ public class Film {
         this.length = length;
     }
 
-    public double getReplacement_cost() {
-        return replacement_cost;
-    }
-
-    public void setReplacement_cost(double replacement_cost) {
-        this.replacement_cost = replacement_cost;
-    }
 
     public String getRating() {
         return rating;
