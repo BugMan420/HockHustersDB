@@ -1,4 +1,4 @@
-package com.example.tsi.izzy.demo;
+package com.example.tsi.izzy.demotest;
 
 import org.springframework.boot.test.context.SpringBootTest;
 

@@ -18,6 +18,7 @@ public class SakilaDatabaseApplication {
 	private FilmRepository filmRepository;
 	@Autowired
 	private CategoryRepository categoryRepository;
+	private String save = "save";
 
 	public SakilaDatabaseApplication(LanguageRepository languageRepository, ActorRepository actorRepository,
 									 FilmRepository filmRepository,CategoryRepository categoryRepository){
@@ -31,37 +32,38 @@ public class SakilaDatabaseApplication {
 		SpringApplication.run(SakilaDatabaseApplication.class,args);
 	}
 
-	@GetMapping("/AllLanguages")
+	@GetMapping("/Languages")
 	public @ResponseBody
 	Iterable<Language>getAllLanguages(){
 		return languageRepository.findAll();
 	}
 
-	@PostMapping("/AddLanguages")
-	Language createLanguage(@Validated @RequestBody Language newLanguage) {
-		return languageRepository.save(newLanguage);
+	@PostMapping("/Languages")
+	public @ResponseBody String addLanguage(@RequestParam String name){
+		Language addLanguage = new Language(name);
+		languageRepository.save(addLanguage);
+		return save;
 	}
 
-
-	@GetMapping("/AllActors")
+	@GetMapping("/Actors")
 	public @ResponseBody
 	Iterable<Actor>getAllActor(){
 		return actorRepository.findAll();
 	}
 
-	@GetMapping("/AllFilms")
+	@GetMapping("/Films")
 	public @ResponseBody
 	Iterable<Film>getAllFilm(){
 		return filmRepository.findAll();
 	}
 
-	@GetMapping("/AllCategories")
+	@GetMapping("/Categories")
 	public @ResponseBody
 	Iterable<Category>getAllCategory(){
 		return categoryRepository.findAll();
 	}
 
-	@PostMapping("/AddCategories")
+	@PostMapping("/Categories")
 	Category createCategory(@Validated @RequestBody Category newCategory) {
 		return categoryRepository.save(newCategory);
 	}

@@ -11,6 +11,7 @@ public class Language {
     @Id
     @GeneratedValue
     private int language_id;
+
     private String name;
 
     public Language(String name){
@@ -26,6 +27,7 @@ public class Language {
     public void setName(String name) {
         this.name = name;
     }
+
     public int getLanguage_id() {
         return language_id;
     }
