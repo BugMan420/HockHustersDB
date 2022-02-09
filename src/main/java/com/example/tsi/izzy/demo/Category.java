@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-
 public class Category {
 
     @Id
@@ -17,9 +16,7 @@ public class Category {
         this.name=name;
     }
 
-    public Category(){
-
-    }
+    public Category(){}
 
     public String getName() {
         return name;
