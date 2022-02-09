@@ -18,9 +18,7 @@ public class Actor {
             this.last_name=last_name;
     }
 
-
     public Actor(){
-
     }
 
     public String getFirst_name() {
