@@ -52,6 +52,16 @@ public class SakilaDatabaseApplication {
 		return actorRepository.findAll();
 	}
 
+
+	@PostMapping("/addActors")
+	public @ResponseBody
+	String addActor(@RequestParam String first_name, String last_name){
+		Actor addActor = new Actor(first_name,last_name);
+		actorRepository.save(addActor);
+		return save;
+	}
+
+
 	@GetMapping("/Films")
 	public @ResponseBody
 	Iterable<Film>getAllFilm(){
