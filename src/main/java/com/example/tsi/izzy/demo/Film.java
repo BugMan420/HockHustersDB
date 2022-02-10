@@ -44,8 +44,7 @@ public class Film {
 
     }
 
-    public Film(){
-    }
+    public Film(){}
 
     public int getFilm_id() {
         return film_id;
