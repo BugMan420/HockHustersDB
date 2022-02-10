@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @SpringBootApplication
 @RestController
 @RequestMapping("/homepage")
@@ -50,6 +52,13 @@ public class SakilaDatabaseApplication {
 	public @ResponseBody
 	Iterable<Actor>getAllActor(){
 		return actorRepository.findAll();
+	}
+
+	@GetMapping("/findActors/{actor_id}")
+	public @ResponseBody
+	Optional<Actor> getActorByID(@PathVariable int actor_id){
+
+		return actorRepository.findById(actor_id);
 	}
 
 
