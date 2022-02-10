@@ -48,6 +48,7 @@ public class SakilaDatabaseApplication {
 		return save;
 	}
 
+
 	@GetMapping("/Actors")
 	public @ResponseBody
 	Iterable<Actor>getAllActor(){
@@ -60,6 +61,16 @@ public class SakilaDatabaseApplication {
 
 		return actorRepository.findById(actor_id);
 	}
+
+	@PostMapping("/addFilmToActor")
+	public @ResponseBody
+	int addFilmToActor(@RequestParam int actor_id, int film_id){
+
+		return actor_id;
+	}
+
+
+
 
 
 	@PostMapping("/addActors")
