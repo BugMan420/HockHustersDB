@@ -1,12 +1,13 @@
 package com.example.tsi.izzy.demo;
 
+
+import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
-import java.util.Set;
 
 @SpringBootApplication
 @RestController
@@ -72,13 +73,29 @@ public class SakilaDatabaseApplication {
 		return save;
 	}
 
-	@PostMapping("/addActorsWithFilm")
+	@PutMapping("/updateActor/{actor_id}")
 	public @ResponseBody
-	String addActorWithFilm(@RequestParam String first_name, String last_name, Set film_id){
-		Actor addActor = new Actor(first_name,last_name, film_id);
-		actorRepository.save(addActor);
+	String updateActor(@PathVariable int actor_id, @RequestParam String first_name, String last_name){
+		Actor updateActor = actorRepository.findById(actor_id).orElseThrow(() ->new ResourceNotFoundException("Actor id not found"));
+		updateActor.setFirst_name(first_name);
+		updateActor.setLast_name(last_name);
+		final Actor updatedActor = actorRepository.save(updateActor);
 		return save;
 	}
+
+
+//	@PutMapping("/updateActor/{actor_id}")
+//	public @ResponseBody
+//	String updateActor(@PathVariable int actor_id, @RequestParam Set <Film> film_id){
+//		actorRepository.findById(actor_id).orElseThrow(() ->new ResourceNotFoundException("Actor id not found"));
+//		Actor updateActor = new Actor();
+//		updateActor.setActor_id(actor_id);
+//		updateActor.setFirst_name(updateActor.getFirst_name());
+//		updateActor.setLast_name(updateActor.getLast_name());
+//		updateActor.setFilms(film_id);
+//		final Actor updatedActor = actorRepository.save(updateActor);
+//		return save;
+//	}
 
 
 
