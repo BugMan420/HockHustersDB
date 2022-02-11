@@ -80,7 +80,6 @@ public class Film {
         this.length = length;
     }
 
-
     public String getRating() {
         return rating;
     }
@@ -95,6 +94,10 @@ public class Film {
 
     public void setSpecial_features(String special_features) {
         this.special_features = special_features;
+    }
+
+    public void addActor(Actor actor){
+
     }
 
     public Set<Actor> getActor() {

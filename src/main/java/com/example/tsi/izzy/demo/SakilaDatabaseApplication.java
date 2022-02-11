@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @SpringBootApplication
@@ -48,6 +50,15 @@ public class SakilaDatabaseApplication {
 		Language addLanguage = new Language(name);
 		languageRepository.save(addLanguage);
 		return save;
+	}
+
+	@DeleteMapping ("/removeLanguages/{language_id}")
+	public Map<String, Boolean> deleteLanguage (@PathVariable(value = "language_id") int language_id)
+			throws ResourceNotFoundException {
+		Language language = languageRepository.findById(language_id).orElseThrow(() ->new ResourceNotFoundException("Language not found"));
+		languageRepository.delete(language);
+		Map<String,Boolean> response = new HashMap<>();
+		return response;
 	}
 
 
