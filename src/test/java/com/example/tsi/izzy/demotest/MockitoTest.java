@@ -71,6 +71,20 @@ public class MockitoTest {
    }
     }
 
+    @Test
+    public void testGetActors(){
+        {
+            Actor actor1 = new Actor("Bool","Leean");
+            Actor actor2 = new Actor ("Test","Tea");
+            List<Actor> actorList = new ArrayList<>();
+            actorList.add(actor1);
+            actorList.add(actor2);
+            when(sakilaDatabaseApplication.getAllActor()).thenReturn(actorList);
+            Assertions.assertEquals(actorList,sakilaDatabaseApplication.getAllActor(),"This test has not worked");
+        }
+    }
+
+
     /*@Test
     public void testUpdateActor() {
         Actor updateActor = new Actor(1,"testName","testLastName");
