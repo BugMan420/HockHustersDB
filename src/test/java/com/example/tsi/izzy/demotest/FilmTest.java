@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class FilmTest {
 
@@ -92,5 +93,11 @@ class FilmTest {
         filmTest.setActor(testSet);
         assertEquals(testSet,filmTest.getActor(),"This test has failed");
 
+    }
+
+    @Test
+    void emptyConstructorTest() {
+        Film film = new Film();
+        assertTrue(film instanceof Film,"This test has failed");
     }
 }

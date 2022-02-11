@@ -45,4 +45,16 @@ public class MockitoTest {
         Assertions.assertEquals(expected,actual,"The data has not been entered into the mock DB");
     }
 
+    @Test
+    public void testAddActor(){
+        Actor saveActor = new Actor ("testName","testSurname");
+        String expected = "save"; //response
+        String actual  = sakilaDatabaseApplication.addActor(saveActor.getFirst_name(),saveActor.getLast_name());
+        ArgumentCaptor<Actor>actorArgumentCaptor = ArgumentCaptor.forClass(Actor.class); //holds data temporarily
+        verify(actorRepository).save(actorArgumentCaptor.capture());
+        actorArgumentCaptor.getValue();
+        Assertions.assertEquals(expected,actual,"The data has not been entered into the mock DB");
+    }
+
+
 }
