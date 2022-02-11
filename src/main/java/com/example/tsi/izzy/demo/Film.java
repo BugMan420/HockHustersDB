@@ -3,12 +3,13 @@ package com.example.tsi.izzy.demo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name="film")
-public class Film {
+public class Film implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int film_id;
@@ -96,9 +97,6 @@ public class Film {
         this.special_features = special_features;
     }
 
-    public void addActor(Actor actor){
-
-    }
 
     public Set<Actor> getActor() {
         return actor;

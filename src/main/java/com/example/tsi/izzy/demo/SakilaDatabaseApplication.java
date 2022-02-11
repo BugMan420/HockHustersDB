@@ -91,7 +91,7 @@ public class SakilaDatabaseApplication {
 		updateActor.setFirst_name(first_name);
 		updateActor.setLast_name(last_name);
 		final Actor updatedActor = actorRepository.save(updateActor);
-		return save;
+		return updatedActor.getFirst_name() + updatedActor.getLast_name();
 	}
 
 
