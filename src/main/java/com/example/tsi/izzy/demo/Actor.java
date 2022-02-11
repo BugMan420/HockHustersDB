@@ -18,10 +18,18 @@ public class Actor implements Serializable {
     @ManyToMany(mappedBy = "actor", fetch = FetchType.LAZY)
     private Set<Film> films = new HashSet<>();
 
+
     public Actor(String first_name, String last_name){
             this.first_name=first_name;
             this.last_name=last_name;
     }
+
+    public Actor(String first_name, String last_name, Set<Film> films) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.films = films;
+    }
+
 
     public Actor(){
     }

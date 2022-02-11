@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
+import java.util.Set;
 
 @SpringBootApplication
 @RestController
@@ -62,16 +63,6 @@ public class SakilaDatabaseApplication {
 		return actorRepository.findById(actor_id);
 	}
 
-	@PostMapping("/addFilmToActor")
-	public @ResponseBody
-	int addFilmToActor(@RequestParam int actor_id, int film_id){
-
-		return actor_id;
-	}
-
-
-
-
 
 	@PostMapping("/addActors")
 	public @ResponseBody
@@ -80,6 +71,15 @@ public class SakilaDatabaseApplication {
 		actorRepository.save(addActor);
 		return save;
 	}
+
+	@PostMapping("/addActorsWithFilm")
+	public @ResponseBody
+	String addActorWithFilm(@RequestParam String first_name, String last_name, Set film_id){
+		Actor addActor = new Actor(first_name,last_name, film_id);
+		actorRepository.save(addActor);
+		return save;
+	}
+
 
 
 	@GetMapping("/Films")

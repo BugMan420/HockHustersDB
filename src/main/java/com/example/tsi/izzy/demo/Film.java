@@ -15,10 +15,10 @@ public class Film {
     private String title;
     private String description;
     private int release_year;
-    private int rental_duration;
     private int length;
     private String rating;
     private String special_features;
+
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 
@@ -33,11 +33,10 @@ public class Film {
     private Set<Actor> actor = new HashSet<>();
 
 
-    public Film(String title, String description, int release_year, int rental_duration, int length, String rating, String special_features){
+    public Film(String title, String description, int release_year, int length, String rating, String special_features){
         this.title=title;
         this.description=description;
         this.release_year=release_year;
-        this.rental_duration=rental_duration;
         this.length=length;
         this.rating=rating;
         this.special_features=special_features;
@@ -73,14 +72,6 @@ public class Film {
         this.release_year = release_year;
     }
 
-    public int getRental_duration() {
-        return rental_duration;
-    }
-
-    public void setRental_duration(int rental_duration) {
-        this.rental_duration = rental_duration;
-    }
-
     public int getLength() {
         return length;
     }
@@ -105,5 +96,14 @@ public class Film {
     public void setSpecial_features(String special_features) {
         this.special_features = special_features;
     }
+
+    public Set<Actor> getActor() {
+        return actor;
+    }
+
+    public void setActor(Set<Actor> actor) {
+        this.actor = actor;
+    }
+
 
 }
