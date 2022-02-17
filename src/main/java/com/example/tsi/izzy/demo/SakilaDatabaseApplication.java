@@ -1,7 +1,6 @@
 package com.example.tsi.izzy.demo;
 
-
-import org.apache.velocity.exception.ResourceNotFoundException;
+import com.amazonaws.services.secretsmanager.model.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +14,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/homepage")
 public class SakilaDatabaseApplication {
+
 	@Autowired
 	private LanguageRepository languageRepository;
 	@Autowired
@@ -32,7 +32,6 @@ public class SakilaDatabaseApplication {
 		this.filmRepository=filmRepository;
 		this.categoryRepository=categoryRepository;
 	}
-
 
 	public static void main(String[] args) {
 		SpringApplication.run(SakilaDatabaseApplication.class,args);
@@ -121,6 +120,4 @@ public class SakilaDatabaseApplication {
 	Iterable<Category>getAllCategory(){
 		return categoryRepository.findAll();
 	}
-
-
 }
