@@ -63,9 +63,11 @@ public class MockitoTest {
        {
            Language language1 = new Language ("TestLOne");
            Language language2 = new Language ("TestLTwo");
+           Language language3 = new Language ("TestLThree");
            List<Language> languageList = new ArrayList<>();
            languageList.add(language1);
            languageList.add(language2);
+           languageList.add(language3);
            when(sakilaDatabaseApplication.getAllLanguages()).thenReturn(languageList);
            Assertions.assertEquals(languageList,sakilaDatabaseApplication.getAllLanguages(),"This test has not worked");
    }
