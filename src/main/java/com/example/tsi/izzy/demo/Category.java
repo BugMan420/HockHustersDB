@@ -1,9 +1,8 @@
 package com.example.tsi.izzy.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Category {
@@ -12,6 +11,9 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int category_id;
     private String name;
+
+    @ManyToMany(mappedBy = "actor", fetch = FetchType.LAZY)
+    private Set<Film> films = new HashSet<>();
 
     public Category(String name){
         this.name=name;

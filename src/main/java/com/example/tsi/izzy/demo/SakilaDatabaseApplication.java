@@ -1,5 +1,6 @@
 package com.example.tsi.izzy.demo;
 
+
 import com.amazonaws.services.secretsmanager.model.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -10,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@CrossOrigin(origins= "*")
 @SpringBootApplication
 @RestController
 @RequestMapping("/homepage")
