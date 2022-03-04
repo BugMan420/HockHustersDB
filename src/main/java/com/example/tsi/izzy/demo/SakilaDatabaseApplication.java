@@ -95,22 +95,6 @@ public class SakilaDatabaseApplication {
 		return updatedActor.getFirst_name() + updatedActor.getLast_name();
 	}
 
-
-//	@PutMapping("/updateActor/{actor_id}")
-//	public @ResponseBody
-//	String updateActor(@PathVariable int actor_id, @RequestParam Set <Film> film_id){
-//		actorRepository.findById(actor_id).orElseThrow(() ->new ResourceNotFoundException("Actor id not found"));
-//		Actor updateActor = new Actor();
-//		updateActor.setActor_id(actor_id);
-//		updateActor.setFirst_name(updateActor.getFirst_name());
-//		updateActor.setLast_name(updateActor.getLast_name());
-//		updateActor.setFilms(film_id);
-//		final Actor updatedActor = actorRepository.save(updateActor);
-//		return save;
-//	}
-
-
-
 	@GetMapping("/Films")
 	public @ResponseBody
 	Iterable<Film>getAllFilm(){
@@ -122,4 +106,6 @@ public class SakilaDatabaseApplication {
 	Iterable<Category>getAllCategory(){
 		return categoryRepository.findAll();
 	}
+
+
 }
