@@ -1,10 +1,13 @@
 package com.example.tsi.izzy.demo;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+@CrossOrigin(origins = "*")
 @Entity
 @Table(name="actor")
 public class Actor implements Serializable {

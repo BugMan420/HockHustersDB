@@ -1,12 +1,14 @@
 package com.example.tsi.izzy.demo;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@CrossOrigin
 @Entity
-
 public class Language {
 
     @Id

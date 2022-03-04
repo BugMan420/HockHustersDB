@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-@CrossOrigin(origins= "*")
+@CrossOrigin
 @SpringBootApplication
 @RestController
 @RequestMapping("/homepage")
